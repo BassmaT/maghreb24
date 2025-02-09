@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casablanca</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        figure {
+            position: relative;
+            cursor: pointer;
+            width: 150px;
+            text-align: center;
+        }
+        figure img, figure video {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        figure video {
+            max-height: 100px;
+        }
+        figure figcaption {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        /* Popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup video {
+            max-width: 80%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Casablanca</h1>
+        
+        <div class="btn">
+            <a href="index.html">Zurück</a>
+        </div>
+        <div class="gallery">
+            <figure onclick="openPopup('flughafen.JPG', 'Flughafen')">
+                <img src="flughafen.JPG" alt="Flughafen">
+                <figcaption>Flughafen</figcaption>
+                
+            </figure>
+            <figure onclick="openPopup('saminoah.JPG', 'Sami und Noah')">
+                <img src="saminoah.JPG" alt="Sami und Noah">
+                <figcaption>Sami und Noah</figcaption>
+            </figure>
+      
+
+
+            <figure onclick="openVideoPopup('casaaussicht.MOV', 'Casa Aussicht')">
+                <video src="casaaussicht.MOV" autoplay></video>
+                <figcaption>Casa Aussicht</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('casapool.MOV', 'Casa Pool')">
+                <video src="casapool.MOV" autoplay></video>
+                <figcaption>Casa Pool</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('casapool2.MOV', 'Casa Pool')">
+                <video src="casapool2.MOV" autoplay></video>
+                <figcaption>Casa Pool</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('casapool3.MOV', 'Casa Pool')">
+                <video src="casapool3.MOV" autoplay></video>
+                <figcaption>Casa Pool</figcaption>
+            
+        </div>
+        <div class="btn">
+            <a href="index.html">Zurück</a>
+        </div>
+    </div>
+    
+    <div class="popup" id="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img id="popupImg" src="" alt="">
+        <p id="popupCaption" style="color: white; text-align: center; margin-top: 10px;"></p>
+    </div>
+    
+    <div class="popup" id="videoPopup">
+        <span class="close" onclick="closeVideoPopup()">&times;</span>
+        <video id="popupVideo" controls></video>
+    </div>
+
+    <script>
+        function openPopup(src, caption) {
+            document.getElementById('popupImg').src = src;
+            document.getElementById('popupCaption').innerText = caption;
+            document.getElementById('popup').style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = "none";
+        }
+
+        function openVideoPopup(src, caption) {
+            document.getElementById('popupVideo').src = src;
+            document.getElementById('videoPopup').style.display = "flex";
+        }
+
+        function closeVideoPopup() {
+            document.getElementById('videoPopup').style.display = "none";
+            document.getElementById('popupVideo').pause();
+            document.getElementById('popupVideo').src = "";
+        }
+    </script>
+</body>
+</html>

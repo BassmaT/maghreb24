@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marrakesh</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        figure {
+            position: relative;
+            cursor: pointer;
+            width: 150px;
+            text-align: center;
+        }
+        figure img, figure video {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        figure video {
+            max-height: 100px;
+        }
+        figure figcaption {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        /* Popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup video {
+            max-width: 80%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Marrakesh</h1>
+        
+        <div class="btn">
+            <a href="index.html">Zurück</a>
+        </div>
+        <div class="gallery">
+            <figure onclick="openPopup('maraaa.jpg', 'Kutschenfart')">
+                <img src="maraaa.JPG" alt="Kutschenfart">
+                <figcaption>Kutschenfart</figcaption>
+            </figure>
+            <figure onclick="openPopup('marak.jpg', 'Kutschenfart')">
+                <img src="marak.jpg" alt="Kutschenfart">
+                <figcaption>Kutschenfart</figcaption>
+            </figure>
+            <figure onclick="openPopup('marakauss.jpg', 'Kutschenfart')">
+                <img src="marakauss.jpg" alt="Kutschenfart">
+                <figcaption>Kutschenfart</figcaption>
+            </figure>
+            <figure onclick="openPopup('marakeshhbf.jpg', 'Hauptbahnhof')">
+                <img src="marakeshhbf.jpg" alt="Hauptbahnhof">
+                <figcaption>Hauptbahnhoft</figcaption>
+            </figure>
+            <figure onclick="openPopup('marakeshobst.jpg', 'Jam al fna')">
+                <img src="marakeshobst.JPG" alt="Jam al fna">
+                <figcaption>Jam al fna</figcaption>
+            </figure>
+            <figure onclick="openPopup('marakpferd.jpg', 'Kutschenfart')">
+                <img src="marakpferd.JPG" alt="Kutschenfart">
+                <figcaption>Kutschenfart</figcaption>
+            </figure>
+            <figure onclick="openPopup('maraobst.jpg', 'Smoothie')">
+                <img src="maraobst.JPG" alt="Smoothie">
+                <figcaption>Smoothie</figcaption>
+            </figure>
+            <figure onclick="openPopup('marrakeshhbf2.jpg', 'HBF')">
+                <img src="marrakeshhbf2.JPG" alt="HBF">
+                <figcaption>HBF</figcaption>
+            </figure>
+            <figure onclick="openPopup('papabassmamara.jpg', 'Papa und Bassma')">
+                <img src="papabassmamara.JPG" alt="Papa und Bassma">
+                <figcaption>Papa und Bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('papabassmaopa.jpg', 'Papa, Bassma und Opa')">
+                <img src="papabassmaopa.JPG" alt="Papa, Bassma und Opa">
+                <figcaption>Papa, Bassma und Opa</figcaption>
+            </figure>
+            <figure onclick="openPopup('papaopa.jpg', 'Papa und Opa')">
+                <img src="papaopa.JPG" alt="Papa und Opa">
+                <figcaption>Papa und Opa</figcaption>
+            </figure>
+            <figure onclick="openPopup('papaopa2.jpg', 'Papa und Opa')">
+                <img src="papaopa2.JPG" alt="Papa und Opa">
+                <figcaption>Papa und Opa</figcaption>
+            </figure>
+            <figure onclick="openPopup('samimara.jpg', 'Sami')">
+                <img src="samimara.jpg" alt="Sami">
+                <figcaption>Sami</figcaption>
+            </figure>
+            <figure onclick="openPopup('samipapalouay.jpg', 'Papa, Sami und Louay')">
+                <img src="samipapalouay.JPG" alt="Papa, Sami und Louay">
+                <figcaption>Papa, Sami und Louay</figcaption>
+            </figure>
+            <figure onclick="openPopup('bassma2.jpg', 'Bassma')">
+                <img src="bassma2.JPG" alt="Bassma">
+                <figcaption>Bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('bassmamara.jpg', 'Bassma')">
+                <img src="bassmamara.JPG" alt="Bassma">
+                <figcaption>Bassma</figcaption>
+            </figure>
+
+
+            <figure onclick="openVideoPopup('maraa.mov', 'Kutschenfart')">
+                <video src="maraa.mov" autoplay></video>
+                <figcaption>Kutschenfart</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('maraakpferd.mov', 'Kutschenfart')">
+                <video src="maraakpferd.mov" autoplay></video>
+                <figcaption>Kutschenfart</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('marakeshflugzeug.MOV', 'Marrakesh')">
+                <video src="marakeshflugzeug.MOV" autoplay></video>
+                <figcaption>Marrakesh</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('marakeshhaus.mov', 'Apartment')">
+                <video src="marakeshhaus.mov" autoplay></video>
+                <figcaption>Apartment</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('marakeshpaddy.MOV', 'Paddy Padunska II')">
+                <video src="marakeshpaddy.MOV" autoplay></video>
+                <figcaption>Paddy Padunska II</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('marakkkk.mov', 'Kutschenfart')">
+                <video src="marakkkk.mov" autoplay></video>
+                <figcaption>Kutschenfart</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('marakutsche.mov', 'Kutschenfart')">
+                <video src="marakutsche.mov" autoplay></video>
+                <figcaption>Kutschenfart</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('marapferd.mov', 'Kutschenfart')">
+                <video src="marapferd.mov" autoplay></video>
+                <figcaption>Kutschenfart</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('marapferdi.mov', 'Kutschenfart')">
+                <video src="marapferdi.mov" autoplay></video>
+                <figcaption>Kutschenfart</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('obstmara.mov', 'Obst')">
+                <video src="obstmara.mov" autoplay></video>
+                <figcaption>Obst</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('zug.MOV', 'Zug')">
+                <video src="zug.MOV" autoplay></video>
+                <figcaption>Zug</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('zug1.MOV', 'Zug')">
+                <video src="zug1.MOV" autoplay></video>
+                <figcaption>Zug</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('zug2.MOV', 'Zug')">
+                <video src="zug2.MOV" autoplay></video>
+                <figcaption>Zug</figcaption>
+            </figure> 
+        </div>
+        <div class="btn">
+            <a href="index.html">Zurück</a>
+        </div>
+    </div>
+    
+    <div class="popup" id="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img id="popupImg" src="" alt="">
+        <p id="popupCaption" style="color: white; text-align: center; margin-top: 10px;"></p>
+    </div>
+    
+    <div class="popup" id="videoPopup">
+        <span class="close" onclick="closeVideoPopup()">&times;</span>
+        <video id="popupVideo" controls></video>
+    </div>
+
+    <script>
+        function openPopup(src, caption) {
+            document.getElementById('popupImg').src = src;
+            document.getElementById('popupCaption').innerText = caption;
+            document.getElementById('popup').style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = "none";
+        }
+
+        function openVideoPopup(src, caption) {
+            document.getElementById('popupVideo').src = src;
+            document.getElementById('videoPopup').style.display = "flex";
+        }
+
+        function closeVideoPopup() {
+            document.getElementById('videoPopup').style.display = "none";
+            document.getElementById('popupVideo').pause();
+            document.getElementById('popupVideo').src = "";
+        }
+    </script>
+</body>
+</html>

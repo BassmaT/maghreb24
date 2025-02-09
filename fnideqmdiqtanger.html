@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fnidq/Mdiq/Tanger</title>
+    <link rel="stylesheet" href="./style.css"/>
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        figure {
+            position: relative;
+            cursor: pointer;
+            width: 150px;
+            text-align: center;
+        }
+        figure img, figure video {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        figure video {
+            max-height: 100px;
+        }
+        figure figcaption {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        /* Popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup video {
+            max-width: 80%;
+            max-height: 80vh;
+            border-radius: 10px;
+        }
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fnidq/Mdiq/Tanger</h1>
+        
+        <div class="btn">
+            <a href="index.html">Zurück</a>
+        </div>
+        <div class="gallery">
+            <figure onclick="openPopup('hbftanger.jpg', 'hbf')">
+                <img src="hbftanger.JPG" alt="hbf">
+                <figcaption>hbf</figcaption>
+            </figure>
+            <figure onclick="openPopup('bassmalouay.JPG', 'louay und bassma')">
+                <img src="bassmalouay.JPG" alt="louay und bassma">
+                <figcaption>louay und bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('bassmasami.JPG', 'sami und bassma')">
+                <img src="bassmasami.JPG" alt="sami und bassma">
+                <figcaption>sami und bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('family.jpeg', 'family')">
+                <img src="family.jpeg" alt="family">
+                <figcaption>family</figcaption>
+            </figure>
+            <figure onclick="openPopup('fnidqboot.JPG', 'boot')">
+                <img src="fnidqboot.JPG" alt="boot">
+                <figcaption>boot</figcaption>
+            </figure>
+            <figure onclick="openPopup('fnidqstrand.JPG', 'Strand')">
+                <img src="fnidqstrand.JPG" alt="Strand">
+                <figcaption>Strand</figcaption>
+            </figure>
+            <figure onclick="openPopup('fnidqyasebassma.JPG', 'yasmin und bassma')">
+                <img src="fnidqyasebassma.JPG" alt="yasmin und bassma">
+                <figcaption>yasmin und bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('mamaundbassma.JPG', 'Mama und Bassma')">
+                <img src="mamaundbassma.JPG" alt="Mama und Bassma">
+                <figcaption>Mama und Bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('zainabundbassma.JPG', 'Bassma und Zainab')">
+                <img src="zainabundbassma.JPG" alt="Zainab und Bassma">
+                <figcaption>Zainab und Bassma</figcaption>
+            </figure>
+            <figure onclick="openPopup('sarabassma.JPG', 'Sara und Bassma')">
+                <img src="sarabassma.JPG" alt="Sara und Bassma">
+                <figcaption>Sara und Bassma</figcaption>
+            </figure>
+
+
+            <figure onclick="openVideoPopup('aussichtfn.MOV', 'Aussicht')">
+                <video src="aussichtfn.MOV" autoplay></video>
+                <figcaption>Aussicht</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('bassmafn.MOV', 'Bassma')">
+                <video src="bassmafn.MOV" autoplay></video>
+                <figcaption>Bassma</figcaption>
+            </figure>
+            <figure onclick="openVideoPopup('fahad.MOV', 'Fahad')">
+                <video src="fahad.MOV" autoplay></video>
+                <figcaption>Fahad</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('fnidqaussicht.mov', 'Aussicht Apartment')">
+                <video src="fnidqaussicht.mov" autoplay></video>
+                <figcaption>Aussicht Apartment</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('fnidqlouay.MOV', 'Louay')">
+                <video src="fnidqlouay.MOV" autoplay></video>
+                <figcaption>Louay</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('louaybassma.MOV', 'Louay')">
+                <video src="louaybassma.MOV" autoplay></video>
+                <figcaption>Louay</figcaption>
+            </figure> 
+            <figure onclick="openVideoPopup('meerfnidq.MOV', 'Meer')">
+                <video src="meerfnidq.MOV" autoplay></video>
+                <figcaption>Meer</figcaption>
+            </figure> 
+        </div>
+        <div class="btn">
+            <a href="index.html">Zurück</a>
+        </div>
+    </div>
+    
+    <div class="popup" id="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img id="popupImg" src="" alt="">
+        <p id="popupCaption" style="color: white; text-align: center; margin-top: 10px;"></p>
+    </div>
+    
+    <div class="popup" id="videoPopup">
+        <span class="close" onclick="closeVideoPopup()">&times;</span>
+        <video id="popupVideo" controls></video>
+    </div>
+
+    <script>
+        function openPopup(src, caption) {
+            document.getElementById('popupImg').src = src;
+            document.getElementById('popupCaption').innerText = caption;
+            document.getElementById('popup').style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = "none";
+        }
+
+        function openVideoPopup(src, caption) {
+            document.getElementById('popupVideo').src = src;
+            document.getElementById('videoPopup').style.display = "flex";
+        }
+
+        function closeVideoPopup() {
+            document.getElementById('videoPopup').style.display = "none";
+            document.getElementById('popupVideo').pause();
+            document.getElementById('popupVideo').src = "";
+        }
+    </script>
+</body>
+</html>
